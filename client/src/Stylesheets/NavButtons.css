@@ -1,0 +1,8 @@
+.Nav{
+    display: flex;
+    width: 200px;
+    position: absolute;
+    right: 125px;
+    top: 30px;
+    justify-content: space-around;
+}
