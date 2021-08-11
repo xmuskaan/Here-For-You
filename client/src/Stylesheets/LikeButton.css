@@ -1,0 +1,9 @@
+.far .fa-heart .liked{
+    color:red;
+    background-color: red;
+}
+
+.far .fa-heart .unliked{
+    color:#333;
+    
+}

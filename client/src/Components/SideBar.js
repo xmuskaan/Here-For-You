@@ -1,8 +1,14 @@
 import '../Stylesheets/SideBar.css';
 import {Link} from 'react-router-dom';
-
+import { AuthContext } from '../context/auth';
+import { useContext} from 'react';
 
 const SideBar = () => {
+
+    const { user } = useContext(AuthContext)
+
+    
+
     return ( 
         <div className="SideBar">
 
@@ -14,10 +20,17 @@ const SideBar = () => {
                 <h6><Link to="/">Discussions</Link></h6>
             </div>
 
-            <div className="user">
-                <h6><Link to="/">Notifications</Link></h6>
-                <h6><Link to="/">Profile</Link></h6>
-            </div>
+            { user ? (
+                 <div className="user">
+                     <h6><Link to="/">Notifications</Link></h6>
+                    <h6><Link to="/">Profile</Link></h6>
+                </div>
+            )
+            :
+            (
+                <div></div>
+            )
+        }
         </div>
      );
 }

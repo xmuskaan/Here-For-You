@@ -1,35 +1,40 @@
 import './App.css';
+import { AuthProvider } from './context/auth';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Home from './Pages/Home';
 import SideBar from './Components/SideBar';
 import NavButtons from './Components/NavButtons';
+import AuthRoute from './utils/AuthRoute';
+import SinglePost from './Pages/SinglePost';
+
 
 function App() {
   return (
-    <Router>
-    <div className="App">
-      <SideBar/>
-      <NavButtons/>
-      <Switch>
-        <div className="Content">
-          <Route exact path = '/' >
-            <Home/>
-           </Route>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <SideBar/>
+          <NavButtons/>
+          <Switch>
+            <div className="Content">
+              <Route exact path = '/' >
+                <Home/>
+              </Route>
         
-           <Route exact path='/login'>
-            <Login/>
-           </Route>
+              <AuthRoute exact path='/login' component= {Login} />
         
-           <Route exact path ='/register'>
-            <Register/>
-           </Route>
+              <AuthRoute exact path ='/register' component= {Register} />
+
+              <Route exact path="/posts/:postId">
+                <SinglePost />
+              </Route>
+            </div>
+          </Switch> 
         </div>
-      </Switch>
-    </div>
-    
-    </Router>
+      </Router>
+    </AuthProvider>
    
     
   );
