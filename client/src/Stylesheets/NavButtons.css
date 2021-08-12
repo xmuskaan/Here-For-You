@@ -7,6 +7,13 @@
     justify-content: space-around;
 }
 
+.loggedIn{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
 .logout{
     float:right;
 }
+

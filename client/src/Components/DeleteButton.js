@@ -1,8 +1,7 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
-import {Confirm} from 'semantic-ui-react';
 import { useState } from 'react';
-
+import Modal from './Modal';
 
 const DeleteButton = ({postId}) => {
     
@@ -18,17 +17,18 @@ const DeleteButton = ({postId}) => {
         }
     })
 
+    const [openModal, setOpenModal] = useState(false);
+
     return ( 
         (   
             <>
-            <button className="deleteButton" onClick={()=> setConfirmOpen(true)} >
+            <button className="deleteButton" onClick={()=> setOpenModal(true)} >
                 <i className="far fa-trash-alt"></i>
             </button>
-            <Confirm
-                open={confirmOpen}
-                onCancel={()=> setConfirmOpen(false)}
-                onConfirm={deletePost}
-            />
+
+                {/*  If openModal is true display modal ; conditional rendering */}
+              { openModal && <Modal closeModal= {setOpenModal} deletePost={deletePost}/> } 
+              
             </>
         )
      );

@@ -8,7 +8,10 @@ const NavButtons = () => {
     const { user, logout } = useContext(AuthContext)
 
     const authBar = user ? (
-        <button className="logout" onClick = {logout}><Link to="/">Logout</Link></button>
+        <div className="loggedIn">
+            <p className="welcomeText">Welcome Back {user.username}</p>
+            <button className="logout" onClick = {logout}><Link to="/">Logout</Link></button>
+        </div>
     ) :
     (
         <div className="Nav">
