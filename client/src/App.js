@@ -8,6 +8,8 @@ import SideBar from './Components/SideBar';
 import NavButtons from './Components/NavButtons';
 import AuthRoute from './utils/AuthRoute';
 import SinglePost from './Pages/SinglePost';
+import Rooms from './Pages/Rooms';
+import ProfilePage from './Pages/ProfiePage';
 
 
 function App() {
@@ -30,6 +32,15 @@ function App() {
               <Route exact path="/posts/:postId">
                 <SinglePost />
               </Route>
+
+              <Route exact path="/Rooms">
+                <Rooms/>
+              </Route>
+
+              <Route exact path="/:username">
+                <ProfilePage/>
+              </Route>
+
             </div>
           </Switch> 
         </div>

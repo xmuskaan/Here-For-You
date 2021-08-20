@@ -44,7 +44,7 @@ const PostForm = () => {
                     name="body"
                     error={error ? true : false}
                     onChange={handleChange}/>
-                <button type="submit">Submit</button>
+                <button type="submit" disabled={values.body===''}>Submit</button>
             </form>
             {error && (
                 <div className="errorMessage">

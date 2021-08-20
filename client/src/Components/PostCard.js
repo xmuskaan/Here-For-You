@@ -4,24 +4,35 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/auth';
 import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
+import { useHistory } from 'react-router';
+import '../Stylesheets/PostCard.css';
 
-const PostCard = ( { post:{ body, createdAt , id , username, likeCount , commentCount , likes, comments } } ) => {
+const PostCard = ( { post:{ body, createdAt , id , username, likeCount , commentCount , likes } }  ) => {
 
     const {user} = useContext(AuthContext);
+ 
+    const history = useHistory();
 
+    function deletePostCallback(){
+        history.push('/');
+        window.location.reload()
+    }
 
     return ( 
-            <div className="postCardContent">
-                <div className="postHeader">
-                     <div className="imageDiv">
-                        <img src=" " alt = "userImage" />
-                     </div>
-
-                    <h3 className="postUser"> {username} </h3>
-
+            <div className="postCardContent" as={Link} to ={`/posts/${id}`}> 
+                <div className="postHeader" > 
+                    <Link to={`/${username}`}>
+                        <div className="imageDiv">
+                            <img src=" " alt = "userImage" />
+                        </div>
+                        <h3 className="postUser"> {username} </h3> 
+                    </Link>
                 </div>
 
-                <div as={Link} to ={`/posts/${id}`}>{moment(createdAt).fromNow(true)}</div>
+                <div> 
+                    <p>{moment(createdAt).fromNow(true)} ago</p>
+                   
+                </div>
 
                 <div className="postBody">
                     <p>{body}</p>
@@ -38,7 +49,7 @@ const PostCard = ( { post:{ body, createdAt , id , username, likeCount , comment
                     </button>
 
                     {user && user.username === username && 
-                    <DeleteButton postId={id} />
+                    <DeleteButton postId={id} callback={deletePostCallback}/>
                     }
                 </div>
                                 

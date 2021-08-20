@@ -1,0 +1,22 @@
+.postCardContent{
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-evenly;
+    margin-bottom:50px;
+    padding:20px;
+}
+
+
+.postHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 172px;
+
+}
+
+.postButtons{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}

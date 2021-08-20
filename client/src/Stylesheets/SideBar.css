@@ -1,8 +1,15 @@
 .SideBar{
+   margin-left: 10px;
    width: 100px;
    height: 100vh;
    position: absolute;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+}
+
+.sidebarImg{
+   width: 50px;
+   margin-bottom: 20px;
+
 }

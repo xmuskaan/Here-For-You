@@ -11,11 +11,18 @@ const Home = () => {
 
     const { loading, data : {getPosts: posts} = {} } = useQuery(FETCH_POSTS_QUERY);
 
-
+   
     return ( 
         <div>
             <h1>Home</h1>
             <div className='Posts'>
+                {
+                    user &&
+                    
+                        <PostForm/>
+                    
+                }
+                
                 {   loading ?
                     (
                         <h1>Loading Posts..</h1>
@@ -24,16 +31,14 @@ const Home = () => {
                     (
                         posts && posts.map ( post => (
                             <div className="postCard" key= {post.id} >
-                                <PostCard post= {post} / >
+                                
+                                <PostCard 
+                                    post= {post} 
+                                / >
                             </div>
                     ))
                 )}
-                {
-                    user &&
-                    
-                        <PostForm/>
-                    
-                }
+          
             </div>
         </div>
      );

@@ -17,6 +17,26 @@ function generateToken(user){
 
 
 module.exports = {
+
+    //Finding user for profile page
+    Query: {  
+        async getUser(_,username ){
+            try{
+                const user = await User.findOne(username);
+                if(user){
+                    return user;
+                }
+                else {
+                    throw new Error('User not found');
+                }
+            }
+            catch (err) {
+                throw new Error(err);
+            }
+        }
+    },
+   
+
     Mutation: {
         async login (_, { username , password }) {
             const {errors, valid} = validateLoginInput(username, password);
@@ -46,6 +66,7 @@ module.exports = {
             }
 
         },
+        
         async register(_, {registerInput: {username, email, password, confirmPassword}}, 
             )
             {
@@ -95,3 +116,4 @@ module.exports = {
         }
     }
 }
+

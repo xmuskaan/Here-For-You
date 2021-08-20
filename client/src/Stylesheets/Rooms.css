@@ -1,0 +1,10 @@
+
+.messageRec{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messageSent{
+    display: flex;
+    justify-content: flex-end;
+}
