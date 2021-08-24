@@ -68,8 +68,8 @@ module.exports = gql`
     }
 
     type Subscription{
-        messages: [Message!]
+        newMessage: Message!
+        newPost: Post!
     }
 
-  
 `;
