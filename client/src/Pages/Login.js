@@ -2,7 +2,7 @@ import { useState , useContext } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import {useForm} from '../utils/hooks';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 
 const Login = () => { 
@@ -70,6 +70,8 @@ const Login = () => {
                     </ul>
                 </div>
             )}
+
+            <p>New to HFY? <Link to="/register">Register Here!</Link></p>
         </div>
      );
 } 

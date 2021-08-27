@@ -1,0 +1,7 @@
+.chatBox{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 500px;
+    justify-content: space-between;
+}

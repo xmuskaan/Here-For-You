@@ -34,7 +34,7 @@ const MessageForm = () => {
     return ( 
         <div className="MessageForm ">
             <form onSubmit={handleSubmit}>
-                <input type="text" 
+                <textarea 
                 placeholder="Enter your message" 
                 id="messageInput"
                 value={values.content} 

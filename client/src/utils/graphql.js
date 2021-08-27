@@ -20,7 +20,7 @@ export const FETCH_MESSAGES_QUERY = gql`
     getMessages{
         id
         username
-        content
+        content 
         createdAt
     }
 }

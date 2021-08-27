@@ -34,7 +34,7 @@ const Home = () => {
                                 
                                 <PostCard 
                                     post= {post} 
-                                / >
+                                />
                             </div>
                     ))
                 )}

@@ -21,25 +21,22 @@ function App() {
           <NavButtons/>
           <Switch>
             <div className="Content">
-              <Route exact path = '/' >
-                <Home/>
-              </Route>
+
+              
+            <Route exact path='/login' component= {Login} />
         
-              <AuthRoute exact path='/login' component= {Login} />
-        
-              <AuthRoute exact path ='/register' component= {Register} />
+            <Route exact path ='/register' component= {Register} />
+            
+            <AuthRoute exact path = '/' component= {Home} />
+             
 
-              <Route exact path="/posts/:postId">
-                <SinglePost />
-              </Route>
+            <AuthRoute exact path="/posts/:postId" component= {SinglePost}/>
+                
 
-              <Route exact path="/Rooms">
-                <Rooms/>
-              </Route>
+            <AuthRoute exact path="/Rooms" component= {Rooms}/>
+               
 
-              <Route exact path="/:username">
-                <ProfilePage/>
-              </Route>
+            <AuthRoute exact path ='/:username' component= {ProfilePage}/>
 
             </div>
           </Switch> 

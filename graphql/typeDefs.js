@@ -32,6 +32,13 @@ module.exports = gql`
         content: String!
         createdAt:String!
     }
+    
+    # type Room{
+    #     id:ID!
+    #     username:String!
+    #     title:String!
+    #     Chat:Message
+    # }
 
     type User{
         id:ID! 
@@ -52,8 +59,9 @@ module.exports = gql`
     type Query{
         getPosts: [Post]
         getPost(postId: ID!): Post
-        getMessages: [Message!]
+        getMessages: [Message]
         getUser(username: String!) : User
+        # getRooms: [Room]
     }
 
     type Mutation{

@@ -1,10 +1,18 @@
+.container{
+    width: 1000px;
+    margin:auto;
+}
 
-.messageRec{
+.chatContainer{
+    height: 70vh;
+    overflow-y: scroll;
+}
+.recUser{
     display: flex;
     justify-content: flex-start;
 }
 
-.messageSent{
+.sentUser{
     display: flex;
     justify-content: flex-end;
 }

@@ -1,13 +1,5 @@
-const { AuthenticationError, UserInputError } = require('apollo-server');
 const Message = require('../../models/Message');
 const checkAuth = require('../../utils/check-auth');
-
-
-
-
-//Subscriptions:-
-const subscribers = [];
-const onMessagesUpdates = (fn) => subscribers.push(fn);
 
 // RESOLVERS 
 
@@ -15,7 +7,7 @@ module.exports= {
     Query: {
         async getMessages(){
             try{
-                const message = await Message;
+                const message = await Message.find();
                 return message;
             } 
             catch (err) {

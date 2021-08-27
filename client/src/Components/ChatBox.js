@@ -1,13 +1,19 @@
 import moment from 'moment';
+import '../Stylesheets/ChatBox.css';
 
 const ChatBox = ({message: {username, createdAt , content}}) => {
   
     
     return ( 
-        <div className="ChatBox" >
-                <h4>{username}</h4>
-                <p>{content}</p>
-                <p>{moment(createdAt).fromNow(true)} ago</p>
+        <div className="chatBox" >
+                <div className="title">
+                    <h4>{username} <span>{moment(createdAt).fromNow(true)} ago</span></h4>
+                </div>
+                
+                <div className="body">
+                    <p> {content}</p>
+                </div>
+                            
         </div>
      );
 }

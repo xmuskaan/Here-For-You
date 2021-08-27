@@ -2,6 +2,7 @@ const postsResolvers = require('./posts');
 const usersResolvers = require('./users');
 const commentsResolvers = require('./comments');
 const messagesResolvers = require('./Messages');
+const roomResolvers = require('./Rooms');
 
 module.exports = {
     Post: {

@@ -17,11 +17,11 @@ const ProfilePage = () => {
         }
     });
 
-    
-    return (  
-        <div className="profilePage">
-            <h1>hi</h1>
-            { getUser && (
+
+    let profileMarkup;
+    if(posts && getUser) {
+        profileMarkup = (
+            <div className="profilePage">
                 <div>
                       <h6>{getUser.username}</h6>
                         <h6>Member Since {moment(getUser.createdAt).fromNow(true)}</h6>
@@ -40,10 +40,15 @@ const ProfilePage = () => {
                                     })
                         }  
                 </div>
-              
-            )}        
-    
-        </div>
+            </div>
+     )}
+    else {
+        return null;
+    }
+    return (  
+            {
+                profileMarkup
+            }                 
     );
 }
 

@@ -1,56 +1,72 @@
-import { useQuery} from '@apollo/client';
+import { useSubscription, useQuery} from '@apollo/client';
 import { AuthContext } from '../context/auth';
 import  { useContext } from 'react';
 import ChatBox from '../Components/ChatBox';
 import MessageForm from '../Components/MessageForm';
-import { FETCH_MESSAGES_QUERY } from '../utils/graphql';
+import gql from 'graphql-tag';
 import '../Stylesheets/Rooms.css';
+import { Link } from 'react-router-dom';
+import { FETCH_MESSAGES_QUERY } from '../utils/graphql';
 
 const Rooms = () => {
 
     const {user} = useContext(AuthContext);
 
-    const {loading ,data: {getMessages: messages} = {} } = useQuery(FETCH_MESSAGES_QUERY);
+    const { data : { getMessages } = {} } = useQuery(FETCH_MESSAGES_QUERY);
+    console.log(getMessages);
+    const { data : { newMessage} = {} } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
+    console.log(newMessage);
 
 
     return (
-        <div className="Container">
+        <div className="container">
             <h1>Rooms</h1>
-
-            { user && 
-             
-             <MessageForm/>
-             
-             }
-            
-            {
-                loading? 
-                ( 
-                    <h1>Loading Messages...</h1>
-                )
-                : 
-                (
-                    messages && messages.map(message => (
-                        <div 
-                        // className={ (user===message.username)? 'messageRec': 'messageSent'} 
-                        key ={message.id}
-
-                            // style={{
-                            //     display:'flex',
-                            //     justifyContent:message.username === user  ? 'flex-end' : 'flex-start'
-                            // }}
-                            >
-                            <ChatBox message={message} />
-
+            {/* {user?
+                    (
+                        <div className="chatContainer">
+                        {
+                            loading? 
+                            ( 
+                                <h1>Loading Messages...</h1>
+                            )
+                            : 
+                            (   
+                                    newMessage && newMessage.map(message => (
+                                        <div key ={message.id} className={ message.username === user.username ? 'sentUser' : 'recUser'} >
+                                            <ChatBox message={message} />
+                                        </div>
+                                    ))
+                            
+                            )
+                        }
                         </div>
-                    ))
-                )
+                    )
+                    :
+                    (
+                        
+                        <Link to='/login'><p>Please Login to continue</p></Link>
+                    )
+            }    */}
+            { user && 
+                    <MessageForm/>
             }
           
         </div>
      );
 
 }
+
+const NEW_MESSAGE_SUBSCRIPTION = gql`
+    subscription {
+        newMessage{
+            id
+            username
+            createdAt
+            content
+        }
+    }
+`;
+
 
 export default Rooms;
 
