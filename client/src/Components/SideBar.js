@@ -18,7 +18,7 @@ const SideBar = () => {
 
             <div className="SideBarMain">
                 <h6> <Link to="/"> <img src="" alt="Home" className="sidebarImg"/ > </Link> </h6>
-                <h6> <Link to="/"> <img src={rating} alt="Discussion"className="sidebarImg"/>  </Link> </h6>
+                <h6> <Link to="/disc"> <img src={rating} alt="Discussion"className="sidebarImg"/>  </Link> </h6>
                 <h6> <Link to="/rooms"> <img src={romantic} alt="Rooms"className="sidebarImg"/>  </Link> </h6>
                 
             </div>
@@ -26,7 +26,7 @@ const SideBar = () => {
             { user ? (
                  <div className="user">
                      <h6><Link to="/">Notifications</Link></h6>
-                    <h6><Link to="/">Profile</Link></h6>
+                     <Link to= {`/${user}`}><h6>Profile</h6></Link>
                 </div>
             )
             :

@@ -1,0 +1,10 @@
+#labelInput{
+    font-size: 20px;
+}
+
+.postForm form #body { 
+    width: 500px;
+    height: 100px;
+    overflow-y: scroll;
+    resize: none;
+}

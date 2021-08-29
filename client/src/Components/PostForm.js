@@ -36,15 +36,17 @@ const PostForm = () => {
         <div className="postForm">
             <form onSubmit={handleSubmit}>
             
-                <label htmlFor="body">Create a post:</label>
-                   <input type="text"
+                <label htmlFor="body" id="labelInput">Create a post:</label>
+                <br/>
+                <input type="text"
                     id="body" 
                     placeholder="Heyaa..." 
                     value={values.body} 
                     name="body"
                     error={error ? true : false}
-                    onChange={handleChange}/>
-                <button type="submit" disabled={values.body===''}>Submit</button>
+                    onChange={handleChange} />
+                <br/>
+                <button className='smallButtons' type="submit" disabled={values.body===''}>Submit</button>
             </form>
             {error && (
                 <div className="errorMessage">

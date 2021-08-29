@@ -15,6 +15,7 @@ const NavButtons = () => {
     ) :
     (
         <div className="Nav">
+            
             <Link to="/login"><button className="login smallButtons">Login</button></Link>
             <Link to="/register"><button className="register smallButtons">Register</button></Link>
         </div>

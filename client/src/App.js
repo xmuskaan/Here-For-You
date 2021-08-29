@@ -31,7 +31,7 @@ function App() {
 
             <Route exact path= '/' component = {Home} />
             
-            <AuthRoute exact path = '/disc' component= {Discussions} />
+            <AuthRoute exact path ='/disc' component= {Discussions} />
              
 
             <AuthRoute exact path="/posts/:postId" component= {SinglePost}/>

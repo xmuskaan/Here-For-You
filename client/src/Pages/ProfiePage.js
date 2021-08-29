@@ -26,7 +26,7 @@ const ProfilePage = () => {
             <div className="profilePage">
                 <div>
                     <div className="userInfo">
-                        <h6 className="headingText"> {getUser.username} </h6>
+                        <h6 className="headingTextPf"> {getUser.username} </h6>
                         <p className="smallText"> Member Since {moment(getUser.createdAt).fromNow(true)} </p>
                         <p className="medTextHeading"> {getUser.username}'s Posts </p>
                     </div>
