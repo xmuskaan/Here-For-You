@@ -17,3 +17,12 @@
     float:right;
 }
 
+.smallButtons{
+    background-color: #5158BB;
+    border-radius: 20px;
+    padding: 7px 6px;
+    border: none;
+    width: 80px;
+    cursor: pointer;
+    color: #fff;
+}

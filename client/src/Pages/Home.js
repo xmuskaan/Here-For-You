@@ -1,51 +1,42 @@
-import { useQuery } from '@apollo/client';
-import PostCard from '../Components/PostCard';
+import {Link} from 'react-router-dom';
+import socialFriends from '../Images/socialFriends.svg';
+import beginChat from '../Images/beginChat.svg';
+import thoughts from '../Images/thoughts.svg';
+import spreadLove from '../Images/spreadLove.svg';
 import '../Stylesheets/Home.css';
-import {AuthContext} from '../context/auth';
-import { useContext } from 'react';
-import PostForm from '../Components/PostForm';
-import { FETCH_POSTS_QUERY } from '../utils/graphql';
-
 const Home = () => {
-    const {user} = useContext(AuthContext);
-
-    const { loading, data : {getPosts: posts} = {} } = useQuery(FETCH_POSTS_QUERY);
-
-   
+    
     return ( 
-        <div>
-            <h1>Home</h1>
-            <div className='Posts'>
-                {
-                    user &&
-                    
-                        <PostForm/>
-                    
-                }
-                
-                {   loading ?
-                    (
-                        <h1>Loading Posts..</h1>
-                    ) 
-                    : 
-                    (
-                        posts && posts.map ( post => (
-                            <div className="postCard" key= {post.id} >
-                                
-                                <PostCard 
-                                    post= {post} 
-                                />
-                            </div>
-                    ))
-                )}
-          
+        <div className="Home">
+            <div className="intro">
+                <p className="headingText">Welcome to Here For You </p>
+                <img className="mainImg" src={spreadLove} alt="spreadLove" />
+                <p className="medText">A community full of love</p>
+
             </div>
+
+            <div className="displayContent">
+                <div className="box1">
+                    <img className="medImg"src={thoughts} alt="" />
+                    <p className="medText">We all feel lost sometimes and at times we have no one to talk to, share our problems with..</p>
+                </div>
+
+                <div className="box2">
+                <p className="medText">Here For You is a social media platform where you could share your tips and tricksthat helps keep you and your mind healthy social friends</p>
+                    <img src={socialFriends} alt="" />
+                </div>
+   
+                <div className="box3">
+                    <img src={beginChat} alt="" />
+                    <p className="">At the end of the day we all need someone to talk to without judging us, <br/> So what are you waiting for? Hop in!</p>
+                    <Link to="/disc"><button className="medButtons"> Get Started!</button></Link>
+                </div>
+                
+               
+            </div>
+
         </div>
      );
 }
-
-
-
-
-
+ 
 export default Home;

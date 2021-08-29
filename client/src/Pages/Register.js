@@ -20,7 +20,7 @@ const Register = () => {
     const [addUser , {loading}] = useMutation(REGISTER_USER , {
         update(_, {data : { register: userData}}){
             context.login(userData)
-            history.push('/');
+            history.push('/disc');
         },
         onError(err){
            setErrors(err.graphQLErrors[0].extensions.errors);

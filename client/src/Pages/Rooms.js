@@ -12,16 +12,16 @@ const Rooms = () => {
 
     const {user} = useContext(AuthContext);
 
-    const { data : { getMessages } = {} } = useQuery(FETCH_MESSAGES_QUERY);
-    console.log(getMessages);
-    const { data : { newMessage} = {} } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
-    console.log(newMessage);
+    const { loading, data : { getMessages : message } = {} } = useQuery(FETCH_MESSAGES_QUERY);
+    
+    const { data } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
+    console.log( data);
 
 
     return (
         <div className="container">
             <h1>Rooms</h1>
-            {/* {user?
+            {user?
                     (
                         <div className="chatContainer">
                         {
@@ -31,7 +31,7 @@ const Rooms = () => {
                             )
                             : 
                             (   
-                                    newMessage && newMessage.map(message => (
+                                    message && message.map(message => (
                                         <div key ={message.id} className={ message.username === user.username ? 'sentUser' : 'recUser'} >
                                             <ChatBox message={message} />
                                         </div>
@@ -46,7 +46,7 @@ const Rooms = () => {
                         
                         <Link to='/login'><p>Please Login to continue</p></Link>
                     )
-            }    */}
+            }   
             { user && 
                     <MessageForm/>
             }
