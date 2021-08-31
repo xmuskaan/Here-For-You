@@ -2,8 +2,10 @@ import '../Stylesheets/SideBar.css';
 import {Link} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 import { useContext} from 'react';
-import rating from '../Images/rating.png';
-import romantic from '../Images/romantic.png';
+import love from '../Images/love.png';
+import people from '../Images/people.png';
+import home from '../Images/home.png';
+import userpic from '../Images/user.png';
 
 const SideBar = () => {
 
@@ -14,19 +16,18 @@ const SideBar = () => {
     return ( 
         <div className="SideBar">
 
-            <h4 className="title"> HFY </h4>
+            <p className="title"> HFY </p>
 
             <div className="SideBarMain">
-                <h6> <Link to="/"> <img src="" alt="Home" className="sidebarImg"/ > </Link> </h6>
-                <h6> <Link to="/disc"> <img src={rating} alt="Discussion"className="sidebarImg"/>  </Link> </h6>
-                <h6> <Link to="/rooms"> <img src={romantic} alt="Rooms"className="sidebarImg"/>  </Link> </h6>
+                <h6> <Link to="/"> <img src={home} alt="Home" className="sideBarImg"/ > </Link> </h6>
+                <h6> <Link to="/disc"> <img src={people} alt="Discussion"className="sideBarImg"/>  </Link> </h6>
+                <h6> <Link to="/rooms"> <img src={love} alt="Rooms"className="sideBarImg"/>  </Link> </h6>
                 
             </div>
 
             { user ? (
                  <div className="user">
-                     <h6><Link to="/">Notifications</Link></h6>
-                     <Link to= {`/${user}`}><h6>Profile</h6></Link>
+                     <Link to= {`/${user}`}> <img src={userpic} alt={userpic} className="sideBarImg" /> </Link>
                 </div>
             )
             :

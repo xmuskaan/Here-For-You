@@ -110,6 +110,8 @@ const SinglePost = () => {
                     })}
                 </div>
 
+                <p>Back to <Link to="/disc">Discussions</Link></p>
+
             </div>
         );
     }

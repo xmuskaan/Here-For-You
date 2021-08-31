@@ -6,6 +6,7 @@ import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
 import { useHistory } from 'react-router';
 import '../Stylesheets/PostCard.css';
+import chatBubble_outlined from '../Images/chatBubble_outlined.svg';
 
 const PostCard = ( { post:{ body, createdAt , id , username, likeCount , commentCount , likes } }  ) => {
 
@@ -20,14 +21,14 @@ const PostCard = ( { post:{ body, createdAt , id , username, likeCount , comment
 
     return ( 
             <div className="postCardContent" as={Link} to ={`/posts/${id}`}> 
-                <div className="postHeader" > 
-                    <Link to={`/${username}`}>
-                        <div className="imageDiv">
-                            <img src=" " alt = "userImage" />
-                        </div>
-                        <h3 className="postUser"> {username} </h3> 
-                    </Link>
-                </div>
+                  <Link to={`/${username}`}>
+                      <div className="postHeader" > 
+                            <div className="imageDiv">
+                                <img src=" " alt = "userImage" />
+                            </div>
+                            <h3 className="postUser"> {username} </h3> 
+                        </div> 
+                   </Link>
 
                 <div> 
                     <p>{moment(createdAt).fromNow(true)} ago</p>
@@ -44,6 +45,7 @@ const PostCard = ( { post:{ body, createdAt , id , username, likeCount , comment
                     <button className="commentButton" >
                         <Link to={`/posts/${id}`}>
                             <i className="far fa-comment-alt"></i>
+                            {/* <img src={chatBubble_outlined} alt="" style={{width:"17px"}} /> */}
                         </Link>
                         <label>{commentCount}</label>
                     </button>

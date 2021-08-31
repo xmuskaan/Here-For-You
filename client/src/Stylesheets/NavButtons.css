@@ -33,3 +33,7 @@
     cursor: pointer;
     color: #fff;
 }
+
+.smallButtons:hover{
+    background-color: #5007bc;
+}

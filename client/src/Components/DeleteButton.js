@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import Modal from './Modal';
 import {FETCH_POSTS_QUERY} from '../utils/graphql';
+import deleteIcon from '../Images/deleteIcon.svg';
 
 const DeleteButton = ({postId, callback, commentId}) => {
     
@@ -34,7 +35,8 @@ const DeleteButton = ({postId, callback, commentId}) => {
         (   
             <>
             <button className="deleteButton" onClick={()=> setOpenModal(true)} >
-                <i className="far fa-trash-alt"></i>
+                {/* <i className="far fa-trash-alt">deleteIcon</i> */}
+                <img src={deleteIcon} alt="" style={{width:"20px"}}/>
             </button>
 
                 {/*  If openModal is true display modal ; conditional rendering */}

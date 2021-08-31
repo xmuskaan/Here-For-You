@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {useMutation} from '@apollo/client';
 import gql from 'graphql-tag';
 import '../Stylesheets/LikeButton.css';
+import favoriteIcon from '../Images/favoriteIcon.svg';
+import favoriteoutlined from '../Images/favoriteoutlined.svg';
 
 const LikeButton = ({user , post: {id, likes, likeCount} }) => {
     
@@ -22,11 +24,14 @@ const LikeButton = ({user , post: {id, likes, likeCount} }) => {
    
    const likeButton = user ? (
        liked ? (
+        //    <img src={favoriteIcon} alt="" style={{width:"18px"}}/>
             <i className="fas fa-heart" /> 
        ):
-            <i className="far fa-heart"  /> ) : 
+            // <img src={favoriteoutlined} alt="" style={{width:"18px"}}/>
+            <i className="far fa-heart"  /> 
+        ) : 
     (
-     <Link to="/login"> <i className="far fa-heart" /> </Link>
+     <Link to="/RegisterLogin">  <img src={favoriteoutlined} alt="" style={{width:"18px"}}/></Link>
     )
    
     return ( 

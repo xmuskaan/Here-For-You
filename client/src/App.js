@@ -11,8 +11,7 @@ import AuthRoute from './utils/AuthRoute';
 import SinglePost from './Pages/SinglePost';
 import Rooms from './Pages/Rooms';
 import ProfilePage from './Pages/ProfiePage';
-
-
+import RegisterLogin from './Pages/RegisterLogin';
 
 function App() {
   return (
@@ -24,12 +23,15 @@ function App() {
           <Switch>
             <div className="Content">
 
-              
+            
+            <Route exact path= '/RegisterLogin' component = {RegisterLogin} />
             <Route exact path='/login' component= {Login} />
         
             <Route exact path ='/register' component= {Register} />
 
             <Route exact path= '/' component = {Home} />
+
+              
             
             <AuthRoute exact path ='/disc' component= {Discussions} />
              

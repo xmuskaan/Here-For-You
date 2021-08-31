@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import {useForm} from '../utils/hooks';
 import {Link, useHistory} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
+import '../Stylesheets/Login.css';
 
 const Login = () => { 
 
@@ -35,15 +36,15 @@ const Login = () => {
 
     return ( 
         <div>
-            <form onSubmit={handleSubmit} noValidate>
-                <h1>Login</h1>
+            <form className="loginForm" onSubmit={handleSubmit} noValidate>
+                <p>Welcome Back!</p>
                              
                 <label htmlFor="username">Username</label>
                 <input type="text"
                 id="username" 
                 placeholder="Username" 
                 value={values.username} 
-                name="username"
+                name="username" 
                 error={errors.username ? true : false}
                 onChange={handleChange}/>
 
@@ -56,13 +57,13 @@ const Login = () => {
                 error={errors.password ? true : false}
                 onChange={handleChange}/>
               
-                <button className="submitButton">Login</button>
+                <button className="submitButton smallButtons">Login</button>
             
             </form>
 
 
             {Object.keys(errors).length > 0 && (
-                <div className="error message">
+                <div className="errorMessage">
                     <ul className="list">
                         {Object.values(errors).map(value => (
                         <li key={value}>{value}</li>
@@ -71,7 +72,7 @@ const Login = () => {
                 </div>
             )}
 
-            <p>New to HFY? <Link to="/register">Register Here!</Link></p>
+            {/* <p>New to HFY? <Link to="/register">Register Here!</Link></p> */}
         </div>
      );
 } 

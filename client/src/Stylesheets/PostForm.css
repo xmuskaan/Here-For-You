@@ -1,10 +1,15 @@
+.postForm{
+    margin: 0px 0px 0px 10px;
+}
+
 #labelInput{
     font-size: 20px;
 }
 
-.postForm form #body { 
+textarea { 
     width: 500px;
     height: 100px;
     overflow-y: scroll;
     resize: none;
+    margin:20px 0px;
 }

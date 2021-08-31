@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/client';
 import { useForm } from '../utils/hooks';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
+import '../Stylesheets/Register.css';
+
 const Register = () => {
 
     const context = useContext(AuthContext);
@@ -34,8 +36,8 @@ const Register = () => {
     
     return ( 
         <div>
-            <form onSubmit={handleSubmit} noValidate>
-                <h1>Register</h1>
+            <form className="registerForm" onSubmit={handleSubmit} noValidate>
+                <p>Create Account~</p>
                              
                 <label htmlFor="username">Username</label>
                 <input type="text"
@@ -73,13 +75,13 @@ const Register = () => {
                 error={errors.confirmPassword ? true : false}
                 onChange={handleChange}/>          
 
-                <button className="submitButton">Register</button>
+                <button className="submitButton smallButtons">Register</button>
             
             </form>
 
 
             {Object.keys(errors).length > 0 && (
-                <div className="error message">
+                <div className="errorMessage">
                     <ul className="list">
                         {Object.values(errors).map(value => (
                         <li key={value}>{value}</li>

@@ -2,6 +2,7 @@ import { useForm } from '../utils/hooks';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import {FETCH_POSTS_QUERY} from '../utils/graphql';
+import '../Stylesheets/PostForm.css';
 
 const PostForm = () => {
     
@@ -38,7 +39,7 @@ const PostForm = () => {
             
                 <label htmlFor="body" id="labelInput">Create a post:</label>
                 <br/>
-                <input type="text"
+                <textarea type="text"
                     id="body" 
                     placeholder="Heyaa..." 
                     value={values.body} 

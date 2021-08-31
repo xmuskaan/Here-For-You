@@ -1,0 +1,15 @@
+.registerForm{
+    display: flex;
+    /* width: 480px; */
+    height: 430px;
+    flex-direction: column;
+    padding-left: 30px;
+    margin-bottom: 30px;
+
+}
+
+.registerForm p{
+    font-size: 25px;
+    margin-bottom: 15px;
+
+}
