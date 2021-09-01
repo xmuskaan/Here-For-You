@@ -7,6 +7,7 @@ import  { useContext, useState } from 'react';
 import LikeButton from '../Components/LikeButton';
 import DeleteButton from '../Components/DeleteButton'
 import { useHistory } from 'react-router';
+import '../Stylesheets/SinglePost.css';
 
 const SinglePost = () => {
     
@@ -48,15 +49,17 @@ const SinglePost = () => {
         const { id, body , createdAt , username , comments, likes, likeCount , commentCount} = getPost;
 
         postMarkup = (
-            <div>
-                <div className="postHeader">
-                     <div className="imageDiv">
-                        <img src=" " alt = "userImage" />
-                     </div>
+            <div className='singlePost'>
+                <Link to={`/${username}`}>
+                    <div className="postHeader">
+                        <div className="imageDiv">
+                            <img src=" " alt = "userImage" />
+                        </div>
 
-                    <h3 className="postUser"> {username} </h3>
+                        <h3 className="postUser"> {username} </h3>
 
-                </div>
+                    </div>
+                </Link>
 
                  <div>{moment(createdAt).fromNow(true)}</div>
 
@@ -99,7 +102,9 @@ const SinglePost = () => {
                                 <DeleteButton postId={id}  commentId={comment.id}  />
                             )}
                             <div className="commentHeader">
-                                <h4>{comment.username}</h4>
+                                <Link to={`/${username}`}>
+                                    <h4>{comment.username}</h4>
+                                </Link>
                                 <p>{moment(comment.createdAt).fromNow()}</p>
                             </div>
 

@@ -27,7 +27,8 @@ const SideBar = () => {
 
             { user ? (
                  <div className="user">
-                     <Link to= {`/${user}`}> <img src={userpic} alt={userpic} className="sideBarImg" /> </Link>
+                    <Link to= {`/${user.username}`}> <img src={userpic} alt={userpic} className="sideBarImg" /> </Link>
+                    {console.log(user)}
                 </div>
             )
             :
