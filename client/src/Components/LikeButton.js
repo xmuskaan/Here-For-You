@@ -25,10 +25,10 @@ const LikeButton = ({user , post: {id, likes, likeCount} }) => {
    const likeButton = user ? (
        liked ? (
         //    <img src={favoriteIcon} alt="" style={{width:"18px"}}/>
-            <i className="fas fa-heart" /> 
+            <i className="fas fa-heart" style={{color: "#c93c55"}}  /> 
        ):
             // <img src={favoriteoutlined} alt="" style={{width:"18px"}}/>
-            <i className="far fa-heart"  /> 
+            <i className="far fa-heart" /> 
         ) : 
     (
      <Link to="/RegisterLogin">  <img src={favoriteoutlined} alt="" style={{width:"18px"}}/></Link>

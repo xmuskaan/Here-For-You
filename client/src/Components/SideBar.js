@@ -16,7 +16,7 @@ const SideBar = () => {
     return ( 
         <div className="SideBar">
 
-            <p className="title"> HFY </p>
+            <Link to="/">   <p className="title"> HFY </p>  </Link>
 
             <div className="SideBarMain">
                 <h6> <Link to="/"> <img src={home} alt="Home" className="sideBarImg"/ > </Link> </h6>

@@ -85,10 +85,10 @@ const SinglePost = () => {
                 
                 {user && (
                     <div className="comment">
-                        <p>Comment</p>
-                        <input type="text" placeholder="Comment.." value={comment} onChange={e => setComment(e.target.value)}/>
-                        <button type="submit" disabled={comment.trim() ===''} onClick={submitComment}>
-                            Submit
+                        <p>Comment your views!</p>
+                        <input type="text" placeholder="Comment.." className="inputComment" value={comment} onChange={e => setComment(e.target.value)}/>
+                        <button type="submit" className="smallButtons square"disabled={comment.trim() ===''} onClick={submitComment}>
+                            Send
                         </button>
                     </div>
                   
@@ -98,15 +98,19 @@ const SinglePost = () => {
                 <div className="postComments">
                     {comments.map( comment => {
                         return <div className="commentContainer" key={comment.id}>
-                            {user && user.username === comment.username &&(
-                                <DeleteButton postId={id}  commentId={comment.id}  />
-                            )}
-                            <div className="commentHeader">
-                                <Link to={`/${username}`}>
-                                    <h4>{comment.username}</h4>
-                                </Link>
-                                <p>{moment(comment.createdAt).fromNow()}</p>
+                           
+                            <div className="commentHead">
+                                <div className="commentHeadInfo">
+                                    <Link to={`/${username}`}>
+                                        <h4>{comment.username}</h4>
+                                    </Link>
+                                    <p>{moment(comment.createdAt).fromNow()}</p>
+                                </div>
+                                {user && user.username === comment.username &&(
+                                        <DeleteButton postId={id}  commentId={comment.id}  />
+                                )}
                             </div>
+                            
 
                             <div className="commentBody">
                                 <p>{comment.body}</p>

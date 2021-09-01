@@ -1,9 +1,9 @@
 .modalBackground {
     width: 100vw;
     height: 100vh;
-    background-color:rgb(216 244 246);
+    /* background-color:rgb(216 244 246); */
     position: fixed;
-    top:0;
+    top:-248px;   /*0px */
     left:0;
     display: flex;
     justify-content: center;
@@ -54,10 +54,11 @@
 
 .button{
     width: 100px;
-    background-color: #239eff;
+    background-color: #a3d6ff;;
     border: none;
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 

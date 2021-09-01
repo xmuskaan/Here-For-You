@@ -1,3 +1,38 @@
+.singlePost{
+    padding: 30px;
+    margin-top: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.commentHead{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+   
+}
+
 .commentContainer{
+    width: 500px;
     margin-bottom: 20px;
+    border: 1px solid #bfb2b2;
+    padding: 10px;
+}
+
+.comment{
+    display: flex;
+    margin: 20px 0px;
+    height: 110px;
+    /* border: 1px solid #cec2c2;
+    padding: 10px; */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputComment{
+    border-bottom: 1px solid #b8b7b7;
+    border-radius: 2px;
+    margin-bottom: 0px;
+}
+
+.square{
+    border-radius: 4px;
 }

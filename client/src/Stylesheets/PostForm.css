@@ -1,5 +1,7 @@
 .postForm{
     margin: 0px 0px 0px 10px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #cecece;
 }
 
 #labelInput{
@@ -12,4 +14,12 @@ textarea {
     overflow-y: scroll;
     resize: none;
     margin:20px 0px;
+}
+
+button:disabled {
+    background-color: #b5b4b7;
+}
+
+button[disabled]:hover {
+    background-color: #b5b4b7;
 }
