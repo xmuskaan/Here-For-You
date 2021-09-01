@@ -12,16 +12,17 @@ const Rooms = () => {
 
     const {user} = useContext(AuthContext);
 
-    const { loading, data : { getMessages : message } = {} } = useQuery(FETCH_MESSAGES_QUERY);
-    
-    const { data } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
+    // const { loading, data : { getMessages : message } = {} } = useQuery(FETCH_MESSAGES_QUERY);
+    // console.log(message)
+    const { loading, data } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
     console.log( data);
-
+    if(!data){return null;}
 
     return (
         <div className="container">
             <h1>Rooms</h1>
-            {user?
+            <h2>We'll be updating this section soon!</h2>
+            {/* {user?
                     (
                         <div className="chatContainer">
                         {
@@ -31,7 +32,7 @@ const Rooms = () => {
                             )
                             : 
                             (   
-                                    message && message.map(message => (
+                                    data.messages && data.messages.map(message => (
                                         <div key ={message.id} className={ message.username === user.username ? 'sentUser' : 'recUser'} >
                                             <ChatBox message={message} />
                                         </div>
@@ -49,16 +50,16 @@ const Rooms = () => {
             }   
             { user && 
                     <MessageForm/>
-            }
+            }*/}
           
-        </div>
+        </div> 
      );
 
 }
 
 const NEW_MESSAGE_SUBSCRIPTION = gql`
     subscription {
-        newMessage{
+        messages{
             id
             username
             createdAt

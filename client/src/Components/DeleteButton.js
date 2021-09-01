@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import Modal from './Modal';
-import {FETCH_POSTS_QUERY} from '../utils/graphql';
+// import {FETCH_POSTS_QUERY} from '../utils/graphql';
 import deleteIcon from '../Images/deleteIcon.svg';
 
 const DeleteButton = ({postId, callback, commentId}) => {

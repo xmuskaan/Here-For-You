@@ -76,7 +76,7 @@ module.exports = gql`
     }
 
     type Subscription{
-        newMessage: [Message!]
+        messages: [Message!]
         newPost: Post!
     }
 

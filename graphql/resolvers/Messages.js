@@ -2,13 +2,7 @@ const Message = require('../../models/Message');
 const checkAuth = require('../../utils/check-auth');
 
 // RESOLVERS 
-const messages=[
-    {content: '',
-    createdAt: '',
-    user:'',
-}
-
-];
+const messages=[];
 const subscribers =[];
 const onMessagesUpdates = (fn) => subscribers.push(fn);
 module.exports= {
@@ -53,28 +47,29 @@ module.exports= {
     // }
 
     Query : {
-        getMessages: () => {
-           
-            messages.pop();
-        }
-
+        getMessages: () => messages,
     },
-    Mutation: {
-        createMessage : (parent,{content},context) => {
-            const user=checkAuth(context);
 
-            const id= messages.length;
+    Mutation: {
+        createMessage : (parent,{content,createdAt},context) => {
+            
+            const user=checkAuth(context);
+            const username=user.username;
+            const id = messages.length;
+
             messages.push({
-                id, 
-                user,
-                content
+                id,
+                username,
+                content,
+                createdAt:new Date().toISOString(),
             });
             subscribers.forEach((fn) => fn());
             return id;
         }
     },
+
     Subscription: {
-        newMessage: {
+        messages: {
             subscribe: (parent, args, {pubsub}) => {
                 const channel = Math.random().toString(36).slice(2,15);
                 onMessagesUpdates(() => pubsub.publish(channel, { messages }) );

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {useMutation} from '@apollo/client';
 import gql from 'graphql-tag';
 import '../Stylesheets/LikeButton.css';
-import favoriteIcon from '../Images/favoriteIcon.svg';
+// import favoriteIcon from '../Images/favoriteIcon.svg';
 import favoriteoutlined from '../Images/favoriteoutlined.svg';
 
 const LikeButton = ({user , post: {id, likes, likeCount} }) => {

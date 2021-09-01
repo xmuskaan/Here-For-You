@@ -2,7 +2,7 @@ import { useState , useContext } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import {useForm} from '../utils/hooks';
-import {Link, useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 import '../Stylesheets/Login.css';
 

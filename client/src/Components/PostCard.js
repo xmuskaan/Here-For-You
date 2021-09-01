@@ -6,7 +6,7 @@ import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
 import { useHistory } from 'react-router';
 import '../Stylesheets/PostCard.css';
-import chatBubble_outlined from '../Images/chatBubble_outlined.svg';
+// import chatBubble_outlined from '../Images/chatBubble_outlined.svg';
 
 const PostCard = ( { post:{ body, createdAt , id , username, likeCount , commentCount , likes } }  ) => {
 
