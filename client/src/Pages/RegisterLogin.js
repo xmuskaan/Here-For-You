@@ -14,7 +14,7 @@ const RegisterLogin = () => {
             return(
                 <div className="buttonsDiv">
                     <button className='lgButtons' onClick={()=>setToggle('login')}>Login</button>
-                    <button className={'lgButtons' + ' ' +(toggle==='register' ? 'active': 'notActive')}>Register</button>
+                    <button className={toggle==='register' ? 'lgButtons active':'lgButtons notActive'}>Register</button>
                 </div>
                 
             )
@@ -22,7 +22,7 @@ const RegisterLogin = () => {
         if(toggle==='login'){
             return(
                 <div className="buttonsDiv"> 
-                      <button className={'lgButtons' + ' ' + (toggle==='login' ? 'active': 'notActive')} >Login</button>
+                      <button className={toggle==='login'? 'lgButtons active' : 'lgButtons notActive'} >Login</button>
                       <button className='lgButtons' onClick={()=>setToggle('register')}>Register</button>
                   
                 </div>

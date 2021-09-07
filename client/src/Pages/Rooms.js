@@ -1,20 +1,22 @@
-import { useSubscription, useQuery} from '@apollo/client';
-import { AuthContext } from '../context/auth';
-import  { useContext } from 'react';
-import ChatBox from '../Components/ChatBox';
-import MessageForm from '../Components/MessageForm';
+import { useSubscription, 
+ //   useQuery
+} from '@apollo/client';
+// import { AuthContext } from '../context/auth';
+// import  { useContext } from 'react';
+//import ChatBox from '../Components/ChatBox';
+//import MessageForm from '../Components/MessageForm';
 import gql from 'graphql-tag';
 import '../Stylesheets/Rooms.css';
-import { Link } from 'react-router-dom';
-import { FETCH_MESSAGES_QUERY } from '../utils/graphql';
+//import { Link } from 'react-router-dom';
+//import { FETCH_MESSAGES_QUERY } from '../utils/graphql';
 
 const Rooms = () => {
 
-    const {user} = useContext(AuthContext);
+    //const {user} = useContext(AuthContext);
 
     // const { loading, data : { getMessages : message } = {} } = useQuery(FETCH_MESSAGES_QUERY);
     // console.log(message)
-    const { loading, data } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
+    const {  data } = useSubscription(NEW_MESSAGE_SUBSCRIPTION);
     console.log( data);
     if(!data){return null;}
 

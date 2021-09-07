@@ -39,6 +39,12 @@ module.exports = gql`
     #     title:String!
     #     Chat:Message
     # }
+    
+    type About{
+        aboutBody:String!
+        username:String! 
+        id: ID!
+    }
 
     type User{
         id:ID! 
@@ -61,6 +67,7 @@ module.exports = gql`
         getPost(postId: ID!): Post
         getMessages: [Message]
         getUser(username: String!) : User
+        getAbout(aboutId:ID!) : About
         # getRooms: [Room]
     }
 
@@ -73,6 +80,7 @@ module.exports = gql`
         deleteComment(postId:ID!, commentId:ID!):Post!
         likePost(postId:ID!):Post!  
         createMessage(content:String!): ID!
+        createAbout(aboutBody:String!):About
     }
 
     type Subscription{

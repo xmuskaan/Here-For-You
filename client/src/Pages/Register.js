@@ -19,7 +19,8 @@ const Register = () => {
     })
     const [errors, setErrors] = useState({});
 
-    const [addUser , {loading}] = useMutation(REGISTER_USER , {
+    const [addUser , //{loading}//  
+    ] = useMutation(REGISTER_USER , {
         update(_, {data : { register: userData}}){
             context.login(userData)
             history.push('/disc');

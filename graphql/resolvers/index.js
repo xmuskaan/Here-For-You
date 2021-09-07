@@ -3,6 +3,7 @@ const usersResolvers = require('./users');
 const commentsResolvers = require('./comments');
 const messagesResolvers = require('./Messages');
 const roomResolvers = require('./Rooms');
+const aboutResolvers= require('./about');
 
 module.exports = {
     Post: {
@@ -12,13 +13,15 @@ module.exports = {
     Query :{
         ...postsResolvers.Query,
         ...messagesResolvers.Query,
-        ...usersResolvers.Query
+        ...usersResolvers.Query,
+        ...aboutResolvers.Query
     },
     Mutation : {
         ...usersResolvers.Mutation,
         ...postsResolvers.Mutation,
         ...commentsResolvers.Mutation,
-        ...messagesResolvers.Mutation
+        ...messagesResolvers.Mutation,
+        ...aboutResolvers.Mutation
     },
     Subscription : {
         ...messagesResolvers.Subscription,

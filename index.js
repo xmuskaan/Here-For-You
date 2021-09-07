@@ -9,41 +9,7 @@ const{ MONGODB } = require('./config');
 
 const pubsub = new PubSub();
 
-//subscription
-// import { createServer } from 'http';
-// import { execute, subscribe } from 'graphql';
-// import { SubscriptionServer } from 'subscriptions-transport-ws';
-// import { makeExecutableSchema } from '@graphql-tools/schema';
-
-
-// (async function () {
-//     const app = express();
-  
-//     const httpServer = createServer(app);
-  
-//     const schema = makeExecutableSchema({
-//       typeDefs,
-//       resolvers,
-//     });
-  
-//     const server = new ApolloServer({
-//       schema,
-//       context: ({ req }) => ({ req , pubsub })
-//     });
-//     await server.start();
-//     server.applyMiddleware({ app });
-  
-//     SubscriptionServer.create(
-//       { schema, execute, subscribe },
-//       { server: httpServer, path: server.graphqlPath }
-//     );
-  
-//     const PORT = 4000;
-//     httpServer.listen(PORT, () =>
-//       console.log(`Server is now running on http://localhost:${PORT}/graphql`)
-//     );
-//   })();
-
+const PORT = process.env.port || 5000;
 
 const server = new ApolloServer({
     typeDefs,
@@ -54,8 +20,11 @@ const server = new ApolloServer({
 mongoose.connect(MONGODB, { useNewUrlParser:true })
     .then(()=> {
         console.log('MongoDB Connected');
-        return server.listen({port: 5000});
+        return server.listen({port: PORT});
     })
     .then((res) => {
         console.log(`Server running at ${res.url}`);
-}); 
+    })
+    .catch(err=> {
+        console.error(err)
+    }); 
