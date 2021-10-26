@@ -9,7 +9,7 @@ const NavButtons = () => {
 
     const authBar = user ? (
         <div className="loggedIn">
-            <p className="welcomeText">Welcome Back {user.username}</p>
+            <p className="welcomeText">Welcome Back <span>{user.username}!</span></p>
             <Link to="/"><button className="logout smallButtons" onClick = {logout}>Logout</button></Link>
         </div>
     ) :

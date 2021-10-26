@@ -20,6 +20,11 @@
 .loggedIn p{
     font-size: 18px;
 }
+
+.loggedIn span{
+    color:#673ab7;
+}
+
 .logout{
     float:right;
 }

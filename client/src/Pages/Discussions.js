@@ -25,7 +25,7 @@ const Home = () => {
                 
                 {   loading ?
                     (
-                        <h1>Loading Posts..</h1>
+                        <h3>Loading Posts..</h3>
                     ) 
                     : 
                     (

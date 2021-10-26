@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Modal from './Modal';
 // import {FETCH_POSTS_QUERY} from '../utils/graphql';
 import deleteIcon from '../Images/deleteIcon.svg';
+import '../Stylesheets/DeleteButton.css';
 
 const DeleteButton = ({postId, callback, commentId}) => {
     
